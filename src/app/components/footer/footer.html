@@ -1,0 +1,25 @@
+<footer class="footer">
+  <div class="container footer__inner">
+    <a href="#home" class="footer__brand">
+      <img class="mark" src="/assets/avatar.jpg" alt="" width="32" height="32" /> Chetan Mittal
+    </a>
+
+    <nav class="footer__links" aria-label="Footer">
+      @for (link of links; track link.href) {
+        <a [href]="link.href">{{ link.label }}</a>
+      }
+    </nav>
+
+    <p class="footer__copy">© {{ year }} Chetan Mittal. All rights reserved.</p>
+  </div>
+</footer>
+
+<button
+  type="button"
+  class="to-top"
+  [class.show]="showTop()"
+  (click)="scrollTop()"
+  aria-label="Back to top"
+>
+  <span class="material-icons-round">arrow_upward</span>
+</button>

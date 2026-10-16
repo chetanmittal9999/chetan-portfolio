@@ -1,0 +1,124 @@
+<section class="section projects" id="work">
+  <div class="container">
+    <header class="section-head" appReveal>
+      <span class="section-tag">My Work</span>
+      <h2 class="section-title">Featured <span class="text-gradient">Projects</span></h2>
+      <p class="section-subtitle">
+        Live websites I've designed and built — plus a few products I'm building right now.
+      </p>
+    </header>
+
+    <div class="grid">
+      @for (project of projects; track project.id; let i = $index) {
+        <article class="card" [class.is-live]="!!project.live" appReveal [revealDelay]="(i % 3) * 90">
+          <!-- Browser chrome -->
+          <div class="card__bar">
+            <span class="card__dots"><i></i><i></i><i></i></span>
+            <span class="card__url">
+              @if (project.live) {
+                <span class="material-icons-round">lock</span>{{ domain(project.live) }}
+              } @else {
+                {{ project.type }}
+              }
+            </span>
+          </div>
+
+          <!-- Visual -->
+          <div class="card__visual" [class.has-shot]="!!project.image" [style.background]="project.gradient">
+            @if (project.image) {
+              <img
+                class="card__shot"
+                [src]="project.image"
+                [alt]="project.title + ' — homepage screenshot'"
+                width="1000"
+                height="625"
+                loading="lazy"
+              />
+            } @else {
+              <span class="card__emoji">{{ project.emoji }}</span>
+              <div class="card__lines" aria-hidden="true"><i></i><i></i><i></i></div>
+            }
+            @if (project.live) {
+              <span class="card__badge card__badge--live"><span class="pulse-dot"></span> Live</span>
+            } @else if (project.featured) {
+              <span class="card__badge">⭐ Featured</span>
+            }
+          </div>
+
+          <!-- Body -->
+          <div class="card__body">
+            <span class="card__type">{{ project.type }}</span>
+            <h3 class="card__title">{{ project.title }}</h3>
+            <p class="card__desc">{{ project.description }}</p>
+
+            <ul class="card__highlights">
+              @for (h of project.highlights; track h) {
+                <li><span class="material-icons-round">check_circle</span>{{ h }}</li>
+              }
+            </ul>
+
+            <div class="card__techs">
+              @for (tech of project.techs; track tech.name) {
+                <span><i [style.background]="tech.color"></i>{{ tech.name }}</span>
+              }
+            </div>
+
+            @if (project.live || project.github) {
+              <div class="card__actions">
+                @if (project.live) {
+                  <a [href]="project.live" target="_blank" rel="noopener" class="btn btn--primary btn--sm">
+                    Visit Live Site <span class="material-icons-round">arrow_outward</span>
+                  </a>
+                }
+                @if (project.github) {
+                  <a [href]="project.github" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">
+                    <span class="material-icons-round">code</span> Code
+                  </a>
+                }
+              </div>
+            }
+          </div>
+        </article>
+      }
+    </div>
+
+    <!-- Currently building -->
+    <div class="building">
+      <div class="building__head" appReveal>
+        <h3 class="building__title"><span class="spinner"></span> Currently Building</h3>
+        <p class="building__sub">New work that will land in this portfolio soon.</p>
+      </div>
+
+      <div class="building__grid">
+        @for (b of building; track b.title; let i = $index) {
+          <article class="wip" [style.--c]="b.color" appReveal [revealDelay]="i * 90">
+            <div class="wip__top">
+              <span class="wip__icon" aria-hidden="true">{{ b.icon }}</span>
+              <span class="wip__kind">{{ b.kind }}</span>
+            </div>
+            <h4 class="wip__title">{{ b.title }}</h4>
+            <p class="wip__desc">{{ b.description }}</p>
+            @if (b.stack) {
+              <div class="wip__stack">
+                @for (tech of b.stack; track tech) {
+                  <span>{{ tech }}</span>
+                }
+              </div>
+            }
+            <div class="wip__foot">
+              <span class="wip__status"><span class="spinner"></span> In progress</span>
+              <span class="wip__soon">Coming soon</span>
+            </div>
+            <div class="wip__bar" aria-hidden="true"><i></i></div>
+          </article>
+        }
+      </div>
+    </div>
+
+    <div class="more" appReveal>
+      <a href="https://github.com/chetanmittal9999" target="_blank" rel="noopener" class="btn btn--ghost">
+        View more on GitHub <span class="material-icons-round">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>

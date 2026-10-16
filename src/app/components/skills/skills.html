@@ -1,0 +1,66 @@
+<section class="section skills" id="expertise">
+  <div class="container">
+    <header class="section-head" appReveal>
+      <span class="section-tag">Technical Skills</span>
+      <h2 class="section-title">Skills <span class="text-gradient">&amp;</span> Expertise</h2>
+      <p class="section-subtitle">
+        A strong foundation in frontend and backend development, focused on building scalable and
+        user-friendly applications.
+      </p>
+    </header>
+
+    <div class="layout">
+      <!-- Proficiency -->
+      <div class="proficiency" appReveal="left">
+        <h3 class="proficiency__title">Core Proficiency</h3>
+        @for (p of proficiency; track p.name; let i = $index) {
+          <div class="bar" [style.--c]="p.color" [style.--i]="i">
+            <div class="bar__top">
+              <span>{{ p.name }}</span>
+              <span class="bar__pct">{{ p.level }}%</span>
+            </div>
+            <div class="bar__track">
+              <div class="bar__fill" [style.width.%]="p.level"></div>
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- Skill cards -->
+      <div class="grid">
+        @for (card of skillCards; track card.title; let i = $index) {
+          <article class="skill-card" [style.--c]="card.color" appReveal [revealDelay]="(i % 2) * 100">
+            <div class="skill-card__head">
+              <span class="skill-card__icon" aria-hidden="true">{{ card.icon }}</span>
+              <div>
+                <h3>{{ card.title }}</h3>
+                <span class="skill-card__count">{{ card.tags.length }} skills</span>
+              </div>
+            </div>
+            <div class="skill-card__tags">
+              @for (tag of card.tags; track tag) {
+                <span [class.hot]="hotTags.includes(tag)">{{ tag }}</span>
+              }
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Marquee -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      @for (round of [0, 1]; track round) {
+        @for (tech of marquee; track tech) {
+          <span class="marquee__item">{{ tech }}</span>
+        }
+      }
+    </div>
+  </div>
+
+  <p class="cta container" appReveal>
+    Always learning — currently exploring <strong>System Design</strong> &amp;
+    <strong>Cloud Architecture</strong>.
+  </p>
+</section>

@@ -1,0 +1,174 @@
+:host { display: block; }
+
+.contact {
+  background: var(--bg-dark);
+  color: #cbd5e1;
+  isolation: isolate;
+
+  .section-tag { background: rgba(255, 255, 255, .06); border-color: rgba(255, 255, 255, .1); color: #cbd5e1; box-shadow: none; }
+  .section-title { color: #fff; }
+  .section-subtitle { color: #94a3b8; }
+}
+
+.glow {
+  display: none;
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: .12;
+  animation: drift 16s ease-in-out infinite;
+
+  &--1 { width: 420px; height: 420px; background: #2563eb; top: -160px; left: -120px; }
+  &--2 { width: 380px; height: 380px; background: #2563eb; bottom: -160px; right: -100px; animation-delay: -8s; }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(60px, 40px); }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 44px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 26px 16px;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid rgba(255, 255, 255, .08);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  transition: transform .4s var(--ease), border-color .4s, background .4s;
+
+  &[href]:hover {
+    transform: translateY(-6px);
+    background: rgba(255, 255, 255, .07);
+    border-color: rgba(125, 211, 252, .5);
+    .item__icon { transform: scale(1.1) rotate(-8deg); }
+  }
+
+  &__icon {
+    display: grid;
+    place-items: center;
+    width: 52px; height: 52px;
+    margin-bottom: 8px;
+    border-radius: 16px;
+    background: var(--grad);
+    color: #fff;
+    font-size: 24px;
+    box-shadow: var(--shadow-glow);
+    transition: transform .4s var(--ease);
+  }
+
+  &__title { font-family: var(--font-display); font-weight: 600; color: #fff; }
+
+  &__value {
+    font-size: .85rem;
+    color: #7dd3fc;
+    word-break: break-word;
+  }
+}
+
+.cta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.btn--light {
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, .25);
+
+  &:hover { transform: translateY(-2px); background: #fff; color: var(--text-dark); }
+}
+
+/* ── Social links ── */
+.socials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, .08);
+
+  &__label {
+    font-size: .74rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #64748b;
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+}
+
+.social {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, .12);
+  background: rgba(255, 255, 255, .04);
+  color: #e2e8f0;
+  font-family: var(--font-display);
+  font-size: .86rem;
+  font-weight: 600;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform .35s var(--ease), border-color .35s, color .35s;
+
+  svg { width: 17px; height: 17px; transition: transform .35s var(--ease); }
+
+  // brand colour fills in on hover
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--brand);
+    opacity: 0;
+    transition: opacity .35s;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: transparent;
+    color: #fff;
+    &::before { opacity: 1; }
+    svg { transform: scale(1.12) rotate(-6deg); }
+  }
+
+  &--li { --brand: #0a66c2; }
+  &--gh { --brand: #24292f; }
+  &--ig { --brand: linear-gradient(45deg, #f58529, #dd2a7b 45%, #8134af 75%, #515bd4); }
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .grid { grid-template-columns: 1fr; gap: 12px; }
+  .item { flex-direction: row; text-align: left; padding: 16px; gap: 14px; }
+  .item__icon { margin: 0; width: 44px; height: 44px; font-size: 20px; flex-shrink: 0; }
+  .item__title { min-width: 70px; }
+  .cta .btn { flex: 1 1 100%; }
+  .social { flex: 1 1 100%; justify-content: center; }
+}

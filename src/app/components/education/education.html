@@ -1,0 +1,85 @@
+<section class="section education" id="education">
+  <div class="container">
+    <header class="section-head" appReveal>
+      <span class="section-tag">Education</span>
+      <h2 class="section-title">Academic <span class="text-gradient">Journey</span></h2>
+      <p class="section-subtitle">
+        The foundation behind the code — from topping my school to a master's degree in progress.
+      </p>
+    </header>
+
+    <div class="tl" #timeline>
+      <!-- the line that draws itself while scrolling -->
+      <div class="tl__line" aria-hidden="true">
+        <div class="tl__fill" [style.transform]="'scaleY(' + lineProgress() + ')'"></div>
+      </div>
+
+      <ol class="tl__list">
+        @for (e of education; track e.degree; let i = $index) {
+          <li class="tl__item" [class.tl__item--right]="i % 2 === 1" [style.--c]="e.color">
+            <div class="tl__marker" appReveal="zoom">
+              <span class="tl__dot" [class.is-live]="e.badge === 'current'"></span>
+              <span class="tl__year">{{ e.year }}</span>
+            </div>
+
+            <article
+              class="edu"
+              [class.is-topper]="e.badge === 'topper'"
+              [class.is-current]="e.badge === 'current'"
+              [appReveal]="i % 2 === 1 ? 'right' : 'left'"
+              [revealDelay]="120"
+            >
+              @if (e.badge === 'topper') {
+                <div class="badge topper">
+                  <span class="topper__trophy" aria-hidden="true">🏆</span>
+                  <span>School Topper</span>
+                </div>
+              } @else if (e.badge === 'current') {
+                <div class="badge current">
+                  <span class="pulse-dot"></span>
+                  <span>Pursuing · 2nd Year</span>
+                </div>
+              }
+
+              <div class="edu__head">
+                <div class="edu__icon" aria-hidden="true">{{ e.icon }}</div>
+                <div class="edu__titles">
+                  <span class="edu__date">
+                    <span class="material-icons-round">calendar_today</span> {{ e.date }}
+                  </span>
+                  <h3 class="edu__degree">{{ e.degree }}</h3>
+                  <p class="edu__inst">{{ e.institution }}</p>
+                  <p class="edu__place">
+                    <span class="material-icons-round">location_on</span> {{ e.place }}
+                  </p>
+                </div>
+              </div>
+
+              <div class="edu__foot">
+                <div class="score" [style.--p]="e.progress" [style.--ring]="ring">
+                  <svg viewBox="0 0 84 84" aria-hidden="true">
+                    <circle class="score__track" cx="42" cy="42" r="36" />
+                    <circle class="score__bar" cx="42" cy="42" r="36" [attr.stroke-dasharray]="ring" />
+                  </svg>
+                  <div class="score__text">
+                    <strong>{{ e.scoreText }}</strong>
+                    <span>{{ e.scoreLabel }}</span>
+                  </div>
+                </div>
+
+                <ul class="edu__notes">
+                  @for (note of e.notes; track note) {
+                    <li>
+                      <span class="material-icons-round">{{ e.badge === 'topper' ? 'emoji_events' : 'check_circle' }}</span>
+                      {{ note }}
+                    </li>
+                  }
+                </ul>
+              </div>
+            </article>
+          </li>
+        }
+      </ol>
+    </div>
+  </div>
+</section>

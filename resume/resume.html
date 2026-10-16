@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Chetan Mittal — Full Stack Engineer — Resume</title>
+<!--
+  ATS-friendly resume source.
+  Build PDF:  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \
+              --no-pdf-header-footer --print-to-pdf=../src/assets/resume.pdf resume.html
+  Rules kept for ATS: single column, standard section names, real text (no images/icons
+  carrying information), standard font, dates on the same line as each role.
+-->
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9.2pt;
+    line-height: 1.3;
+    color: #1f2937;
+    padding: 8.5mm 12mm 7mm;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  header { text-align: center; margin-bottom: 7pt; }
+  h1 { font-size: 21pt; letter-spacing: .5pt; color: #0f172a; }
+  .headline { font-size: 10.5pt; font-weight: bold; color: #1d4ed8; margin: 2pt 0 4pt; }
+  .contact { font-size: 9pt; color: #374151; }
+  .contact span + span::before { content: "|"; margin: 0 6pt; color: #9ca3af; }
+
+  h2 {
+    font-size: 10.5pt;
+    text-transform: uppercase;
+    letter-spacing: 1pt;
+    color: #0f172a;
+    border-bottom: 1.2pt solid #1d4ed8;
+    padding-bottom: 1.5pt;
+    margin: 7pt 0 3.5pt;
+  }
+
+  p.summary { text-align: justify; }
+
+  .skills { display: grid; grid-template-columns: 27mm 1fr; row-gap: 1.5pt; }
+  .skills dt { font-weight: bold; }
+
+  .entry { margin-bottom: 4pt; }
+  .row { display: flex; justify-content: space-between; gap: 10pt; }
+  .row .title { font-weight: bold; color: #0f172a; }
+  .row .when { white-space: nowrap; font-weight: bold; color: #374151; }
+  .sub { display: flex; justify-content: space-between; font-style: italic; color: #4b5563; margin-bottom: 1.5pt; }
+  .role { margin-top: 3pt; }
+
+  ul { padding-left: 12pt; }
+  li { margin-bottom: 1.4pt; }
+  li::marker { color: #1d4ed8; }
+  b { color: #0f172a; }
+
+  .edu .row { margin-bottom: 1pt; }
+  .edu .row .title { font-weight: normal; }
+  .edu .row .title b { font-weight: bold; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>CHETAN MITTAL</h1>
+  <div class="headline">Full Stack Engineer &nbsp;|&nbsp; React.js &bull; React Native &bull; Node.js &bull; TypeScript</div>
+  <div class="contact">
+    <span>Mohali, Punjab, India (Open to Remote)</span>
+    <span>+91 70823 88524</span>
+    <span><a href="mailto:chetanmittal32@gmail.com">chetanmittal32@gmail.com</a></span>
+  </div>
+  <div class="contact">
+    <span><a href="https://www.linkedin.com/in/chetanmittal01/">linkedin.com/in/chetanmittal01</a></span>
+    <span><a href="https://github.com/chetanmittal9999">github.com/chetanmittal9999</a></span>
+  </div>
+</header>
+
+<h2>Professional Summary</h2>
+<p class="summary">
+  Full Stack Engineer with <b>1.5+ years</b> of experience building responsive, high-performance
+  <b>web and mobile applications</b> using <b>React.js, React Native, Angular, TypeScript, Node.js</b>
+  and <b>PostgreSQL</b>. Built production UI for a finance product used by <b>10,000+ users</b>,
+  improved page load performance by <b>35%</b>, and cut feature development time by <b>20%</b> with
+  reusable component libraries. Delivered three live production websites as a freelance developer.
+  Currently pursuing an <b>MCA (CGPA 9.0)</b> while working full-time remotely for a US-based company (Florida).
+</p>
+
+<h2>Technical Skills</h2>
+<dl class="skills">
+  <dt>Languages</dt>  <dd>JavaScript (ES6+), TypeScript, HTML5, CSS3, SQL</dd>
+  <dt>Frontend</dt>   <dd>React.js, React Native, Angular, Tailwind CSS, SCSS, Bootstrap, Reactive Forms, Responsive Web Design, Single Page Applications (SPA)</dd>
+  <dt>Backend</dt>    <dd>Node.js, Express.js, RESTful APIs, JWT Authentication, Supabase</dd>
+  <dt>Databases</dt>  <dd>PostgreSQL, MySQL, MongoDB, Schema Design, SQL Queries</dd>
+  <dt>Tools</dt>      <dd>Git, GitHub, Postman, VS Code, npm, Vite</dd>
+  <dt>Practices</dt>  <dd>Performance Optimization (Lazy Loading, Code Splitting), Reusable Component Architecture, Cross-Browser Compatibility, Agile/Scrum, Code Reviews, Debugging, Data Structures, OOP</dd>
+</dl>
+
+<h2>Professional Experience</h2>
+
+<div class="entry">
+  <div class="row"><span class="title">AdvaDigital — Full Stack Engineer</span><span class="when">Aug 2026 – Present</span></div>
+  <div class="sub"><span>Full-time · US-based company</span><span>Remote — Florida, USA</span></div>
+  <ul>
+    <li>Building the company's product end-to-end across <b>web and mobile (iOS &amp; Android)</b>, working across the full stack from APIs to polished, responsive interfaces.</li>
+    <li>Turn product requirements into reusable components and well-structured APIs, shipping in short iterative releases with a distributed US–India team (async communication, pull requests, code reviews).</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="row"><span class="title">Bridging Technologies</span><span class="when">Jul 2025 – Aug 2026</span></div>
+  <div class="sub"><span>Promoted from Frontend Developer Intern to Associate Developer</span><span>Mohali, India</span></div>
+
+  <div class="row role"><span class="title">Associate Developer</span><span class="when">Jan 2026 – Aug 2026</span></div>
+  <ul>
+    <li><b>Slow first load on a finance web app:</b> introduced lazy-loaded modules and code splitting, improving page load performance by <b>35%</b>.</li>
+    <li>Built a fully responsive Angular UI for a finance product used by <b>10,000+ users</b>, giving a consistent experience across desktop, tablet and mobile.</li>
+    <li>Developed complex <b>Angular Reactive Forms</b> with custom validation to handle data-heavy financial workflows accurately.</li>
+  </ul>
+
+  <div class="row role"><span class="title">Frontend Developer Intern</span><span class="when">Jul 2025 – Jan 2026</span></div>
+  <ul>
+    <li><b>Repeated UI work slowing every feature:</b> built a library of reusable UI components that reduced development time by <b>20%</b>.</li>
+    <li>Worked in an Agile team with weekly sprints and peer code reviews using Angular, TypeScript and Bootstrap.</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="row"><span class="title">Phenom IT — Full Stack Developer Intern (MERN)</span><span class="when">Jul 2024 – Oct 2024</span></div>
+  <div class="sub"><span>Internship</span><span>Hisar, India</span></div>
+  <ul>
+    <li>Developed full-stack web applications with <b>MongoDB, Express.js, React.js and Node.js</b>, from design to deployment.</li>
+    <li>Built secure <b>RESTful APIs</b> with Express.js and <b>JWT authentication</b>, and integrated them with React frontends.</li>
+  </ul>
+</div>
+
+<h2>Projects (Live, Freelance)</h2>
+
+<div class="entry">
+  <div class="row"><span class="title">Apna Bhattu Kalan — Hyperlocal Community Platform</span><span class="when">apnabhattu.techtattava.in</span></div>
+  <ul>
+    <li><b>Problem:</b> villagers had no single, trusted place to find local shops, services, jobs and notices. Built a <b>bilingual (English/Hindi)</b> React platform with a business directory, search, jobs, buy &amp; sell listings, a live news ticker, notices and events.</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="row"><span class="title">TechTattava — Company Website</span><span class="when">techtattava.in</span></div>
+  <ul>
+    <li>Responsive React website for a software, AI &amp; cloud consultancy: multi-level navigation, service/industry pages, lead capture.</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="row"><span class="title">Amit Kumar — Geospatial Portfolio</span><span class="when">amitktala.com</span></div>
+  <ul>
+    <li>Responsive portfolio for a GIS &amp; remote-sensing professional: projects, skills, certifications, gallery and contact.</li>
+  </ul>
+</div>
+
+<h2>Education</h2>
+<div class="edu">
+  <div class="row"><span class="title"><b>Master of Computer Applications (MCA)</b> — Chandigarh University (Online) — CGPA: 9.0</span><span class="when">2025 – Present</span></div>
+  <div class="row"><span class="title"><b>Bachelor of Computer Applications (BCA), CS</b> — Dayanand College, Hisar (GJU) — CGPA: 7.6</span><span class="when">2022 – 2025</span></div>
+  <div class="row"><span class="title"><b>Class XII</b> — GSSS Bhattu Kalan, Fatehabad, Haryana — 93.67% (School Topper)</span><span class="when">2022</span></div>
+  <div class="row"><span class="title"><b>Class X</b> — Bala Ji Public School, Bhattu Kalan, Haryana — 90.6%</span><span class="when">2020</span></div>
+</div>
+
+</body>
+</html>

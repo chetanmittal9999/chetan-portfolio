@@ -1,0 +1,61 @@
+<section class="section experience" id="experience">
+  <div class="container">
+    <header class="section-head" appReveal>
+      <span class="section-tag">Experience</span>
+      <h2 class="section-title">Professional <span class="text-gradient">Journey</span></h2>
+      <p class="section-subtitle">
+        Building scalable, user-friendly applications with modern frontend and backend technologies.
+      </p>
+    </header>
+
+    <div class="stats">
+      @for (s of stats; track s.label; let i = $index) {
+        <div class="stats__item" appReveal="zoom" [revealDelay]="i * 80">
+          <span class="stats__val">{{ s.value }}</span>
+          <span class="stats__lbl">{{ s.label }}</span>
+        </div>
+      }
+    </div>
+
+    <ol class="timeline">
+      @for (item of experiences; track item.role + item.date; let i = $index) {
+        <li class="tl-item" [class.is-active]="item.active" [style.--c]="item.color" appReveal="left" [revealDelay]="i * 60">
+          <span class="tl-dot" aria-hidden="true"></span>
+
+          <article class="card">
+            <div class="card__head">
+              <div class="card__icon" aria-hidden="true">{{ item.icon }}</div>
+              <div class="card__titles">
+                <h3 class="card__role">{{ item.role }}</h3>
+                <p class="card__company">{{ item.company }} <span>· {{ item.type }}</span></p>
+              </div>
+              @if (item.active) {
+                <span class="badge-current"><span class="pulse-dot"></span> Current</span>
+              }
+            </div>
+
+            <div class="card__meta">
+              <span><span class="material-icons-round">calendar_today</span> {{ item.date }}</span>
+              <span>
+                <span class="material-icons-round">{{ item.location.startsWith('Remote') ? 'public' : 'location_on' }}</span>
+                {{ item.location }}
+              </span>
+            </div>
+
+            <ul class="card__points">
+              @for (point of item.points; track point) {
+                <li>{{ point }}</li>
+              }
+            </ul>
+
+            <div class="card__tags">
+              @for (tag of item.tags; track tag) {
+                <span>{{ tag }}</span>
+              }
+            </div>
+          </article>
+        </li>
+      }
+    </ol>
+  </div>
+</section>
